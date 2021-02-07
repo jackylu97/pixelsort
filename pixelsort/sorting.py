@@ -1,4 +1,4 @@
-import pixelsort.util as util
+import util as util
 
 
 def lightness(pixel):

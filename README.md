@@ -1,3 +1,9 @@
+### Potential Todos
+- Add max_dimension parameter
+- Write composable scripts
+
+___
+
 # pixelsort
 
 ### What is Pixel Sorting?

@@ -1,5 +1,7 @@
 from colorsys import rgb_to_hsv
+import json
 import time
+from constants import DEFAULTS
 
 
 def id_generator():
@@ -18,6 +20,34 @@ def hue(pixel):
 
 def saturation(pixel):
     return rgb_to_hsv(pixel[0], pixel[1], pixel[2])[1] / 255.0
+
+def calc_size_given_max_dim(size, mx):
+    # get height, width with same aspect ratio, setting the larger dimension to mx
+    assert len(size) == 2, f"image should have dim=2 !! got {size}"
+    h, w = size
+
+    if h > w:
+        w = (float(mx) / float(h)) * w
+        return (mx, int(w))
+    else:
+        h = (float(mx) / float(w)) * h
+        return (int(h), mx)
+
+class ArgLog:
+    def __init__(self):
+        self.argdicts = []
+    
+    def add_args(self, arg_dict):
+        self.argdicts.append(arg_dict)
+
+    def save(self, path):
+        save_text = ""
+        for d in self.argdicts:
+            d = dict(DEFAULTS, **d)
+            d["image"] = f"image_{d['image'].size}"
+            save_text = save_text + json.dumps(d) + '\n'
+        with open(f'{path}.txt', 'w') as file:
+            file.write(save_text)
 
 
 def crop_to(image_to_crop, reference_image):

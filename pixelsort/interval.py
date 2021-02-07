@@ -1,6 +1,6 @@
 from random import randint, random as random_range
 from PIL import ImageFilter
-from pixelsort.util import lightness
+from util import lightness
 
 
 def edge(image, lower_threshold, **kwargs):

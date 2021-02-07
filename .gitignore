@@ -12,3 +12,9 @@ venv
 
 #Output images in root (examples are not ignored)
 /*.png
+
+#Output images in custom
+custom
+
+#Don't commit garbage files
+*.DS_Store

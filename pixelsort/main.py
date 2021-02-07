@@ -1,11 +1,11 @@
 import logging
 from PIL import Image
 
-from pixelsort.util import crop_to
-from pixelsort.sorter import sort_image
-from pixelsort.constants import DEFAULTS
-from pixelsort.interval import choices as interval_choices
-from pixelsort.sorting import choices as sorting_choices
+from util import crop_to
+from sorter import sort_image
+from constants import DEFAULTS
+from interval import choices as interval_choices
+from sorting import choices as sorting_choices
 
 
 def pixelsort(
