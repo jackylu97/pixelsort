@@ -1,4 +1,4 @@
-import util as util
+import pixelsort.util as util
 
 
 def lightness(pixel):
@@ -7,6 +7,9 @@ def lightness(pixel):
 
 def intensity(pixel):
     return pixel[0] + pixel[1] + pixel[2]
+
+def luma(pixel):
+    return 0.2126 * pixel[0] + 0.7152 * pixel[1] + 0.0722 * pixel[2]
 
 
 def hue(pixel):
@@ -26,5 +29,6 @@ choices = {
     "hue": hue,
     "intensity": intensity,
     "minimum": minimum,
-    "saturation": saturation
+    "saturation": saturation,
+    "luma": luma
 }

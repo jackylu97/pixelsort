@@ -1,7 +1,8 @@
 from colorsys import rgb_to_hsv
 import json
 import time
-from constants import DEFAULTS
+import os.path
+from pixelsort.constants import DEFAULTS
 
 
 def id_generator():
@@ -34,11 +35,13 @@ def calc_size_given_max_dim(size, mx):
         return (int(h), mx)
 
 class ArgLog:
-    def __init__(self):
+    def __init__(self, base_dir="./custom/"):
         self.argdicts = []
+        self.base_dir = base_dir
     
     def add_args(self, arg_dict):
-        self.argdicts.append(arg_dict)
+        # save copy, in case dict object is modified later
+        self.argdicts.append(arg_dict.copy())
 
     def save(self, path):
         save_text = ""
@@ -46,7 +49,9 @@ class ArgLog:
             d = dict(DEFAULTS, **d)
             d["image"] = f"image_{d['image'].size}"
             save_text = save_text + json.dumps(d) + '\n'
-        with open(f'{path}.txt', 'w') as file:
+        if not os.path.isdir(self.base_dir + '/arg_logs'):
+            os.mkdir(self.base_dir + '/arg_logs')
+        with open(f"{self.base_dir}arg_logs/{path}.txt", 'w') as file:
             file.write(save_text)
 
 

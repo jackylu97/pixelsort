@@ -13,7 +13,7 @@ venv
 #Output images in root (examples are not ignored)
 /*.png
 
-#Output images in custom
+#Custom folders
 custom
 
 #Don't commit garbage files
