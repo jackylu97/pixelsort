@@ -55,9 +55,10 @@ for threshold in thresholds:
 
     args = {}
 
-    args["angle"] = 90
+    args["angle"] = 55
     args["image"] = image
     args["interval_function"] = threshold
+    args["sorting_function"] = "luma"
     argLogger.add_args(args)
     logging.info("Sorting those pixels...")
     logging.info(f"Args supplied: {str(args)}")
@@ -65,4 +66,4 @@ for threshold in thresholds:
 
     logging.info("Saving image...")
     output.save(custom_dir(IMAGE_OUTPUT) + ".png")
-    argLogger.save(custom_dir(IMAGE_OUTPUT))
+    argLogger.save(IMAGE_OUTPUT)

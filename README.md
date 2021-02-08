@@ -1,6 +1,8 @@
 ### Potential Todos
-- Add max_dimension parameter
-- Write composable scripts
+- Add better sorting functions
+- Add different interval schemes
+- [DONE] Add max_dimension parameter
+- [DONE] Write composable scripts
 
 ___
 
